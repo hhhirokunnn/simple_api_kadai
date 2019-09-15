@@ -1,1 +1,2 @@
-GET     /v1/comments/:id            controllers.CommentsController.show(id: Int)
+GET     /v1/comments/:id            controllers.CommentsController.showUserComment(id: Int)
+GET     /v2/comments/:id            controllers.CommentsController.showUserCommentScore(id: Int)

@@ -1,16 +1,12 @@
 package repository.comment_score
 
-import scalikejdbc.NamedDB
-import CommentScoreTable.c
-import scalikejdbc.withSQL
+import repository.comment_score.CommentScoreTable.c
+import scalikejdbc.{DBSession, NamedDB, withSQL}
 
-class CommentScoreSelector {
+class CommentScoreSelector(implicit session: DBSession) {
 
-  def selectAll(): Vector[CommentScoreTable] = {
-    NamedDB(Symbol("test")) localTx { implicit session =>
-      withSQL {
-        scalikejdbc.select.from(CommentScoreTable as c)
-      }.map(CommentScoreTable.*).collection.apply()
-    }
-  }
+  def selectById(id: Int): Vector[CommentScoreTable] =
+    withSQL {
+      scalikejdbc.select.from(CommentScoreTable as c).where.eq(c.id, id)
+    }.map(CommentScoreTable.*).collection.apply()
 }
