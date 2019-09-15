@@ -1,12 +1,10 @@
 package repository.user_comment
 
-import java.sql.Date
-
 import scalikejdbc._
 
 case class UserCommentTable(id: Int,
                             user_id: Int,
-                            comment_date: Date,
+                            comment_date: String,
                             comment: String)
 
 object UserCommentTable extends SQLSyntaxSupport[UserCommentTable] {
@@ -20,7 +18,7 @@ object UserCommentTable extends SQLSyntaxSupport[UserCommentTable] {
     UserCommentTable(
       id = set.int(uc.resultName.id),
       user_id = set.int(uc.resultName.user_id),
-      comment_date = set.date(uc.resultName.comment_date),
+      comment_date = set.string(uc.resultName.comment_date),
       comment = set.string(uc.resultName.comment)
   )
 }
