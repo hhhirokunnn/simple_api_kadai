@@ -20,5 +20,9 @@ libraryDependencies ++= Seq(
   // https://mvnrepository.com/artifact/org.scalikejdbc/scalikejdbc-play-initializer
   "org.scalikejdbc" % "scalikejdbc-play-initializer_2.12" % "2.6.0",
   // https://mvnrepository.com/artifact/mysql/mysql-connector-java
-  "mysql" % "mysql-connector-java" % "8.0.17"
+  "mysql" % "mysql-connector-java" % "8.0.17",
+  "com.typesafe.play" %% "play-ahc-ws-standalone" % "2.0.6",
+  "com.typesafe.play" %% "play-ws-standalone-json" % "2.0.6",
+  // https://mvnrepository.com/artifact/net.liftweb/lift-json_2.12/3.3.0
+  "net.liftweb" % "lift-json_2.12" % "3.3.0"
 )

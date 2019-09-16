@@ -7,6 +7,6 @@ class CommentScoreSelector(implicit session: DBSession) {
 
   def selectById(id: Int): Vector[CommentScoreTable] =
     withSQL {
-      scalikejdbc.select.from(CommentScoreTable as c).where.eq(c.id, id)
+      scalikejdbc.select.from(CommentScoreTable as c).where.eq(c.comment_id, id)
     }.map(CommentScoreTable.*).collection.apply()
 }
